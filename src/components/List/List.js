@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import classes from "./List.module.css";
 
 const List = () => {
@@ -9,22 +10,29 @@ const List = () => {
   };
 
   const removeItemHandler = (selIndex) => {
-    setItems((prevState) => 
+    setItems((prevState) =>
       prevState.filter((item, index) => index !== selIndex)
     );
   };
 
   const listItems = items.map((item, index) => (
-    <li
-      key={index}
-      className={classes.listItem}
-      onClick={() => removeItemHandler(index)}
+    <CSSTransition
+      key={item}
+      timeout={300}
+      mountOnEnter
+      unmountOnExit
+      classNames={{
+        enter: classes.addListItem,
+        enterActive: classes.addListItemActive,
+        exit: classes.removeListItem,
+        exitActive: classes.removeListItemActive,
+      }}
     >
-      {item}
-    </li>
+      <li className={classes.listItem} onClick={() => removeItemHandler(index)}>
+        {item}
+      </li>
+    </CSSTransition>
   ));
-
-  console.log(items);
 
   return (
     <div>
@@ -32,8 +40,9 @@ const List = () => {
         Add Item
       </button>
       <p>Click Item to Remove.</p>
-      {/* <p>{items}</p> */}
-      <ul className={classes.list}>{listItems}</ul>
+      <TransitionGroup component="ul" className={classes.list}>
+        {listItems}
+      </TransitionGroup>
     </div>
   );
 };

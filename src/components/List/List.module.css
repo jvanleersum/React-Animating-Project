@@ -20,3 +20,21 @@
 .listItem:active {
   background-color: #ccc;
 }
+
+.addListItem {
+  opacity: 0
+}
+
+.addListItemActive {
+  opacity: 1;
+  transition: opacity 0.3s ease-in
+}
+
+.removeListItem {
+  opacity: 1
+}
+
+.removeListItemActive {
+  opacity: 0;
+  transition: opacity 0.3s ease-out
+}
