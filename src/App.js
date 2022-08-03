@@ -24,8 +24,8 @@ const App = () => {
 
   const animationTiming = {
     enter: 400,
-    exit: 1000
-  }
+    exit: 1000,
+  };
 
   return (
     <div className="App">
@@ -34,7 +34,15 @@ const App = () => {
         Toggle
       </button>
       <br />
-      <Transition in={showBlock} timeout={animationTiming} mountOnEnter unmountOnExit>
+      <Transition
+        in={showBlock}
+        timeout={animationTiming}
+        mountOnEnter
+        unmountOnExit
+        onEnter={console.log("onEnter")}
+        onEntering={console.log("onEntering")}
+        onEntered={console.log("onEntered")}
+      >
         {(state) => (
           <div
             style={{
