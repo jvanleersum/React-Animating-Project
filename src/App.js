@@ -38,12 +38,14 @@ const App = () => {
               height: 100,
               margin: "auto",
               transition: "opacity 1s ease-out",
-              opacity: state === 'exiting' ? 0 : 1
+              opacity: state === "exiting" ? 0 : 1,
             }}
           />
         )}
       </Transition>
-      {showModal && <Modal show={showModal} closed={closeModalHandler} />}
+      <Transition in={showModal} timeout={300} mountOnEnter unmountOnExit>
+        {(state) => <Modal show={state} closed={closeModalHandler} />}
+      </Transition>
       {showModal && <Backdrop show={showModal} closed={closeModalHandler} />}
       <button className="Button" onClick={showModalHandler}>
         Open Modal
