@@ -19,7 +19,7 @@ const Modal = (props) => {
         exitActive: classes.modalClosed
       }}
     >
-      <div className="modal">
+      <div className={classes.modal}>
         <h1>A Modal</h1>
         <button className="button" onClick={props.closed}>
           Dismiss
