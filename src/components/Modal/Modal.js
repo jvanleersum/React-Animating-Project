@@ -1,7 +1,6 @@
 import classes from "./Modal.module.css";
 
 const Modal = (props) => {
-  console.log(props.show)
   const modalClasses = `${classes.modal} ${
     props.show ? classes.modalOpen : classes.modalClosed
   }`;
