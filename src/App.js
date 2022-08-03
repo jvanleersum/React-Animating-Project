@@ -22,11 +22,6 @@ const App = () => {
     setShowBlock((prevState) => !prevState);
   };
 
-  const animationTiming = {
-    enter: 400,
-    exit: 1000,
-  };
-
   return (
     <div className="App">
       <h1>React Animations</h1>
@@ -34,15 +29,7 @@ const App = () => {
         Toggle
       </button>
       <br />
-      <Transition
-        in={showBlock}
-        timeout={animationTiming}
-        mountOnEnter
-        unmountOnExit
-        onEnter={console.log("onEnter")}
-        onEntering={console.log("onEntering")}
-        onEntered={console.log("onEntered")}
-      >
+      <Transition in={showBlock} timeout={300} mountOnEnter unmountOnExit>
         {(state) => (
           <div
             style={{
@@ -56,9 +43,7 @@ const App = () => {
           />
         )}
       </Transition>
-      <Transition in={showModal} timeout={300} mountOnEnter unmountOnExit>
-        {(state) => <Modal show={state} closed={closeModalHandler} />}
-      </Transition>
+      <Modal closed={closeModalHandler} show={showModal}/>
       {showModal && <Backdrop show={showModal} closed={closeModalHandler} />}
       <button className="Button" onClick={showModalHandler}>
         Open Modal
