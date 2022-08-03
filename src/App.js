@@ -19,8 +19,8 @@ const App = () => {
   return (
     <div className="App">
       <h1>React Animations</h1>
-      {showModal && <Modal show={showModal} closed={closeModalHandler}/> }
-      {showModal && <Backdrop show={showModal} closed={closeModalHandler}/> }
+      <Modal show={showModal} closed={closeModalHandler}/>
+      <Backdrop show={showModal} closed={closeModalHandler}/>
       <button className="Button" onClick={showModalHandler}>Open Modal</button>
       <h3>Animating Lists</h3>
       <List />
