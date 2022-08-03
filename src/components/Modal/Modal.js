@@ -1,5 +1,5 @@
 import { CSSTransition } from "react-transition-group";
-import './Modal.css';
+import classes from './Modal.module.css';
 
 
 const Modal = (props) => {
@@ -14,7 +14,10 @@ const Modal = (props) => {
       timeout={animationTiming}
       mountOnEnter
       unmountOnExit
-      classNames="fade-slide"
+      classNames={{
+        enterActive: classes.modalOpen,
+        exitActive: classes.modalClosed
+      }}
     >
       <div className="modal">
         <h1>A Modal</h1>
