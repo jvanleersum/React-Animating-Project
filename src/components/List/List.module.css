@@ -1,0 +1,40 @@
+.list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 280px;
+}
+
+.listItem {
+  margin: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  border: 1px solid #521751;
+  background-color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.listItem:hover,
+.listItem:active {
+  background-color: #ccc;
+}
+
+.addListItem {
+  opacity: 0
+}
+
+.addListItemActive {
+  opacity: 1;
+  transition: opacity 0.3s ease-in
+}
+
+.removeListItem {
+  opacity: 1
+}
+
+.removeListItemActive {
+  opacity: 0;
+  transition: opacity 0.3s ease-out
+}
