@@ -22,6 +22,11 @@ const App = () => {
     setShowBlock((prevState) => !prevState);
   };
 
+  const animationTiming = {
+    enter: 400,
+    exit: 1000
+  }
+
   return (
     <div className="App">
       <h1>React Animations</h1>
@@ -29,7 +34,7 @@ const App = () => {
         Toggle
       </button>
       <br />
-      <Transition in={showBlock} timeout={300} mountOnEnter unmountOnExit>
+      <Transition in={showBlock} timeout={animationTiming} mountOnEnter unmountOnExit>
         {(state) => (
           <div
             style={{
